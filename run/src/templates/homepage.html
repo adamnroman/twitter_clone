@@ -1,0 +1,30 @@
+<!doctype html>
+{% extends "structure.html" %}
+{% block structure %}
+<thead>
+        <tr>
+          <th>#</th>
+          <th>Username</th>
+          <th>Content</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+              <tbody>
+            {% for _ in content %}
+                <tr>
+                  <td>{{_[0]}}</td>
+                  <td>{{_[1]}}</td>
+                  {% if _[3] %}
+                  <td>Retweet: {{_[2]}}</td>
+                  {% else %}
+                  <td>{{_[2]}}</td>
+                  {%endif%}
+                  <td>{{_[4]}}</td>
+                </tr>
+            {% endfor %}   
+              </tbody>
+              <form method = "post">
+                    <p>No Friends? Add Friends! <input type = "text" name = "add_friend" /></p>
+                    <p><input type = "submit" value = "Submit" /></p>
+                  </form>
+{% endblock %}
